@@ -2,7 +2,7 @@
   "use strict";
     
     angular
-        .module("ngClassifieds")
+        .module("Across")
         .factory("facto", function($http , $firebaseArray ){
         
 

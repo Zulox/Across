@@ -1,5 +1,5 @@
 angular
-    .module("ngClassifieds", ["ngMaterial", "ui.router" , "firebase" ])
+    .module("Across", ["ngMaterial", "ui.router" , "firebase" ])
     .config(function($mdThemingProvider, $stateProvider){
     
     $mdThemingProvider.theme('default')
@@ -24,7 +24,19 @@ angular
             params:{
                 classified: null
             }
-        });
+        })
+       
+
+        .state('test',{
+            url: '/test', 
+            templateUrl: 'components/test/test.tpl.html',
+            controller: 'testCtrl as vm',            
+        })
+
+
+
+
+        ;
 });
             
    

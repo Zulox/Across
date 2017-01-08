@@ -4,7 +4,7 @@
     "use stricts";
     
     angular
-        .module("ngClassifieds")
+        .module("Across")
         .controller("classifiedsCtrl", function($scope,$state , $http,facto, $mdDialog ,$mdToast ,$mdSidenav){
         
         var vm = this;

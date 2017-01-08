@@ -3,7 +3,7 @@
 	"use strict";
 
 	angular
-		.module('ngClassifieds')
+		.module('Across')
 		.controller('newclassifiedsCtrl', function( $scope, $state , $mdDialog ,$timeout,$mdSidenav , facto){
 
 			var vm = this;
