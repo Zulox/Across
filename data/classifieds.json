@@ -1,0 +1,93 @@
+[                      
+    {
+		"id" : "1",
+		"title" : "Ford Mustang GT",
+		"desc" : "Aapproaching the midway point of our long-term Ford Mustang’s 40,000-mile review, the 2016 GT continues to largely please drivers with its rev-happy, 435-hp 5.0-liter V-8 and sinister, blacked-out mien. Its Bridgestone Blizzak winter tires are long gone, and the return of 0.94 g of lateral grip from the Pirelli P Zero summer rubber means we’re back to tearing up country roads and highway interchanges",
+		"price": 25000,
+		"posted" : "2014-10-24",
+		"contact" : {
+			"name" : "Zulox Malox",
+			"phone" : "(555) 555-5555",
+			"email" : "johndoe@gmail.com"                
+		},
+		"categories":[
+			"Vehicles",
+			"Parts and Accessories"                
+		],
+		"images": "http://assets.forddirect.fordvehicles.com/assets/2017_Ford_Mustang_J1/NGBS/Model_Image3/Model_Image3_136B520D-8E32-1085-4DED-A2104DEDA210.png",
+		"views" : 213
+		
+	},
+		 {
+		"id" : "2",
+		"title" : "Chevrolet Camaro ",
+		"desc" : "The Chevrolet Camaro is an automobile manufactured by Chevrolet, classified as a pony car[1][2] and some versions also as a muscle car.[3][4] It went on sale on September 29, 1966, for the 1967 model year and was designed as a competing model to the Ford Mustang. The car shared its platform and major components with the Pontiac Firebird, also introduced for 1967.",
+		"price": 25000,
+		"posted" : "2014-12-24",
+		"contact" : {
+			"name" : "Zulox Malox",
+			"phone" : "(555) 555-5555",
+			"email" : "johndoe@gmail.com"                
+		},
+		"categories":[
+			"Vehicles"
+		],
+		"images": "http://s1.paultan.org/image/2015/05/2016-Chevrolet-Camaro-RS-010-630x342.jpg",
+		"views" : 88					
+	},
+		 {
+		"id" : "3",
+		"title" : "Sony PlayStation 4 ",
+		"desc" : "The PlayStation 4 (abbreviated as PS4) is a home video game console developed by Sony Interactive Entertainment, formerly Sony Computer Entertainment. Announced as the successor to the PlayStation 3 during a press conference on February 20, 2013, it was launched on November 15, 2013, in North America, and November 29, 2013, in Europe, South America and Australia, and February 22, 2014 in Japan. It competes with Nintendo's Wii U and Microsoft's Xbox One, as part of the eighth generation of video game consoles.",
+		"price": 400,
+		"posted" : "2016-12-24",
+		"contact" : {
+			"name" : "Zulox Malox",
+			"phone" : "(555) 555-5555",
+			"email" : "johndoe@gmail.com"                
+		},
+		"categories":[
+			"Console"
+		],
+		"images": "http://media.psu.com/media/articles/image/playstation4_image.jpg",
+		"views" : 242
+		
+	},	        	
+		 {
+		"id" : "5",
+		"title" : "Green Parka",
+		"desc" : "A parka or anorak is a type of coat with a hood, often lined with fur or faux fur. The hood protects the face from freezing temperatures and wind. The Caribou Inuit invented this kind of garment, originally made from caribou or seal skin, for hunting and kayaking in the frigid Arctic. Some Inuit anoraks require regular coating with fish oil to retain their water resistance.",
+		"price": 99,
+		"posted" : "2016-12-24",
+		"contact" : {
+			"name" : "Zulox Malox",
+			"phone" : "(555) 555-5555",
+			"email" : "johndoe@gmail.com"                
+		},
+		"categories":[
+			"Clothing"
+		],
+		"images": "http://uniqlo.scene7.com/is/image/UNIQLO/goods_32_079750?$pdp-medium$",
+		"views" : 350
+		
+	},
+	{
+		"id" : "6",
+		"title" : "Blue Hoodie",
+		"desc" : "A sweater (North American English) is a knitted garment intended to cover the torso and arms. A sweater is either a pullover or a cardigan, distinguished in that cardigans open at the front while pullovers do not. In British English, a pullover may also be called a jumper or jersey. There is no hypernym equivalent to sweater covering both pullovers and cardigans.",
+		"price": 99,
+		"posted" : "2016-12-24",
+		"contact" : {
+			"name" : "Zulox Malox",
+			"phone" : "(555) 555-5555",
+			"email" : "johndoe@gmail.com"                
+		},
+		"categories":[
+			"Clothing"
+		],
+		"images": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=42805842",
+		"views" : 400
+		
+	}
+	        	
+ ]

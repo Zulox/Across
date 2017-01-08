@@ -1,0 +1,23 @@
+{
+  "name": "across",
+  "version": "1.0.0",
+  "description": "Advertisement click response optimization service solution",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zulox/Across.git"
+  },
+  "keywords": [
+    "Across",
+    "Zulox"
+  ],
+  "author": "Zulox",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zulox/Across/issues"
+  },
+  "homepage": "https://github.com/Zulox/Across#readme"
+}
