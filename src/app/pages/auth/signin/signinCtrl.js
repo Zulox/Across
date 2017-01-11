@@ -37,10 +37,8 @@
 
 			  	TempData.$loaded().then(function () {		
 					AuthUser.setConnecting(TempData);
-				});
-				
-					
-	  
+					 $state.go('home');
+				});	
 			  }, function (error){
 			    vm.error = error;
 			  });

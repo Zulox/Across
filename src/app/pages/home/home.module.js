@@ -10,7 +10,8 @@
         .state('home', {
           url: '/home',
           templateUrl: 'app/pages/home/home.html',
-          title: 'Home',
+          title: 'Upload',
+          controller: 'homeCtrl as vm',
           sidebarMeta: {
             icon: 'ion-android-home',
             order: 0,
