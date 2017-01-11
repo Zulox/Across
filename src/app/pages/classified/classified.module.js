@@ -11,6 +11,7 @@
           url: '/classified',
           templateUrl: 'app/pages/classified/classified.html',
           title: 'Classified',
+          controller: 'staycool as vm',
           sidebarMeta: {
             order: 800,
           },

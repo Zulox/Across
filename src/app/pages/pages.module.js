@@ -9,6 +9,7 @@
     'ui.router',
     'BlurAdmin.pages.classified',
     'BlurAdmin.pages.home',
+    'BlurAdmin.pages.auth',
     'BlurAdmin.pages.dashboard',
     'BlurAdmin.pages.ui',
     'BlurAdmin.pages.components',
