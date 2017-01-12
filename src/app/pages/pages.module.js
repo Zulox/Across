@@ -11,12 +11,12 @@
     'BlurAdmin.pages.home',
     'BlurAdmin.pages.auth',
     'BlurAdmin.pages.dashboard',
-    'BlurAdmin.pages.ui',
-    'BlurAdmin.pages.components',
+    'BlurAdmin.pages.ui',    
     'BlurAdmin.pages.form',
     'BlurAdmin.pages.tables',
     'BlurAdmin.pages.charts',
     'BlurAdmin.pages.maps',
+    'BlurAdmin.pages.publishing',
     'BlurAdmin.pages.profile',
   ])
       .config(routeConfig);

@@ -66,6 +66,7 @@
 				    	Totalclick : 0,
 				    	CreatedAt : FromDate,
 				    	LastEdit  : FromDate,
+				    	AdsPublishing : "",
     				})
     				.then(function(pogback) {
 				  var id = pogback.key;
@@ -75,40 +76,6 @@
 				});
 
 		    }
-
-
-		    /*function Addads(){
-				vm.error = '';	
-				
-				var currentUser = AuthUser.getConnecting();
-
-				var ref = new firebase.database().ref('advertisement');
-    			var advertisements = $firebaseArray(ref);
-
-    			var userID = currentUser.$id;
-    		
-
-				advertisements.$add({
-			    Name: vm.advertisement.name,
-		     	Keyword: vm.advertisement.keyword,
-		    	LandingURL: vm.advertisement.landingURL,
-		    	Budget : vm.advertisement.budget,
-		    	Remainbudget : vm.advertisement.budget,
-		    	Totalview : 0,
-		    	BannerURL : "URL",
-		    	CreatedAt : FromDate,
-		    	LastEdit  : FromDate,
-		    	Owner 	  : { currentUser.$id : true}
-
-		    	
-
-			    });
-
-			 
-		    	
-
-
-			};*/
 
 
 			function open(page) {

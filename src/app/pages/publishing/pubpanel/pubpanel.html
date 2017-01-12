@@ -1,0 +1,27 @@
+<div class="row" >
+	<div class="col-md-6 col-lg-6" ng-show="!vm.pubexist">	
+		<div  class="panel panel-success bootstrap-panel">
+		 <div class="panel-heading">Advertisement Publishing</div>		 
+		 	<div class="panel-body">
+		 		<p>Start earning money with us by becoming our publisher. Starting your publishing journey is free!!! <br>
+		 		Click the button below to start!</p>
+		 		 <div class="text-center">
+				    <button ng-click="vm.becomePub()" class="btn  btn-lg btn-info">START</button>  
+				     <button ng-click="vm.CheckPub()" class="btn  btn-lg btn-info">CHECK</button>  
+				 </div> 
+		 	</div>        
+ 		</div>
+  	</div>
+
+	<div class="col-md-6 col-lg-6" ng-show="vm.pubexist">	
+		<div  class="panel panel-info bootstrap-panel">
+		 <div class="panel-heading">Your INFO</div>		 
+		 	<div class="panel-body">
+		 		<p>Total View    :  </p>
+		 		<p>Total Click   :  </p> 
+		 		<p>Total Revenue :  </p>		 		
+		 	</div>        
+ 		</div>
+  	</div>
+
+</div>
