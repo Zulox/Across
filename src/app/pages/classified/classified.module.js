@@ -13,7 +13,7 @@
           title: 'Classified',
           controller: 'staycool as vm',
           sidebarMeta: {
-            order: 800,
+            order: 5,
           },
         });
   }

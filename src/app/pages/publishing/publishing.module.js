@@ -14,7 +14,7 @@
           title: 'Publishing',
           sidebarMeta: {
             icon: 'ion-paper-airplane',
-            order: 200,
+            order: 4,
           },
         });
   }

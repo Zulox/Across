@@ -18,8 +18,6 @@
 		//vm.pubexist = pubpanelFac.getExistpub();
 
 		vm.pubdata = pubpanelFac.getPubdata();
-		
-
 
   }
 
