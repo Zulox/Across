@@ -16,7 +16,6 @@
           resolve: {
             mustnotAuth: function($state, Auth){
               return Auth.$requireSignIn().then(function(auth){
-                console.log(auth);
                 console.log("user logged in");
                 $state.go('dashboard');
               }, function(error){
@@ -25,8 +24,8 @@
             }
           },
           sidebarMeta: {
-            icon: 'ion-play',
-            order: 1,
+            icon: 'ion-android-home',
+            order: 0,
           },        
         })
         

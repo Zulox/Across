@@ -4,7 +4,7 @@
   angular.module('BlurAdmin.pages.auth.signin')
       .controller('AuthSigninCtrl', AuthSigninCtrl);
   /** @ngInject */
-  function AuthSigninCtrl($scope, $state, Auth, AuthUser, toastr) {
+  function AuthSigninCtrl($scope, $state, Auth, AuthUser) {
     	console.log("Auth Controller ");
     	var vm = this;
     		// bower install --save angular
@@ -37,8 +37,7 @@
 
 			  	TempData.$loaded().then(function () {		
 					AuthUser.setConnecting(TempData);
-					 $state.go('addadvert');
-					 toastr.success('Login Successful');
+					 $state.go('home');
 				});	
 			  }, function (error){
 			    vm.error = error;

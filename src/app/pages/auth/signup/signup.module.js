@@ -25,8 +25,8 @@
           },
 
           sidebarMeta: {
-            icon: 'ion-code-download',
-            order: 2,
+            icon: 'ion-android-home',
+            order: 0,
           },        
         })
         

@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.addadvert')
-      .controller('addadvertCtrl', addadvertCtrl);
+  angular.module('BlurAdmin.pages.home')
+      .controller('homeCtrl', homeCtrl);
   /** @ngInject */
-  function addadvertCtrl($scope, $state, AuthUser, $firebaseArray,  $uibModal, toastr) {    	
+  function homeCtrl($scope, $state, AuthUser, $firebaseArray,  $uibModal, toastr) {    	
     		var vm = this;
     		// bower install --save angular
 			/*
@@ -84,7 +84,7 @@
 		      $uibModal.open({
 		        animation: true,
 		        templateUrl: page,	
-		        controller: 'addadvertCtrl' ,
+		        controller: 'homeCtrl' ,
 		        controllerAs: 'vm',	        
 		        resolve: {
 		          items: function () {
