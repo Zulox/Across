@@ -8,14 +8,15 @@
   angular.module('BlurAdmin.pages', [
     'ui.router',
     'BlurAdmin.pages.classified',
-    'BlurAdmin.pages.home',
+    'BlurAdmin.pages.addadvert',
+    'BlurAdmin.pages.viewadvert',
     'BlurAdmin.pages.auth',
+    'BlurAdmin.pages.template',
     'BlurAdmin.pages.dashboard',
     'BlurAdmin.pages.ui',    
     'BlurAdmin.pages.form',
     'BlurAdmin.pages.tables',
-    'BlurAdmin.pages.charts',
-    'BlurAdmin.pages.maps',
+    'BlurAdmin.pages.charts',  
     'BlurAdmin.pages.publishing',
     'BlurAdmin.pages.profile',
   ])

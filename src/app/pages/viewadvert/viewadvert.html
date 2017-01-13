@@ -1,0 +1,43 @@
+<div class="widgets">	
+  <div class="row-fluid" >
+  
+	  <div class="col-md-12">
+	    <h2>Your Advertisement </h2>
+
+	    <div class="panel-group">
+	      <div class="panel twozeromargin panel-primary bootstrap-panel " ng-repeat=" advert in vm.advertisements">
+	       
+	        <div class="panel-heading whitetext">{{ advert.Name  }}</div>
+	        <div class="panel-body">
+	          <div class="col-md-6">
+	          <div class="img-viewadvert"><img ng-src="{{advert.BannerURL}}" alt="" ></div>
+	          </div>
+	          <div class="col-md-6">
+	          		<div class="col-xs-6">	                 		
+	          		<h3>STATUS</h3>
+	          		</div>
+	          		<div class="col-xs-6">	                 		
+	          		<h3>: {{advert.Status}}</h3>
+	          		</div>
+	          		<div class="col-xs-6">	                 		
+	          		<h3>Remaining Funds </h3>
+	          		</div>
+	          		<div class="col-xs-6">	                 		
+	          		<h3>: RM{{advert.Remainbudget}}</h3>
+	          		</div>
+	          		<div class="col-xs-12">	                 		
+	         		<button type="button" class="btn col-xs-5  col-md-5 btn-success ">VIEW
+	         		</button>
+	         		<div class="col-xs-2 col-md-2 "></div>	         		
+	         		<button type="button" class="btn col-xs-5 col-md-5 btn-danger ">DELETE
+	         		</button>	 
+	         		</div>        	    
+	          </div>
+	        </div>
+	      
+	      </div>
+	    </div>
+	  </div>
+  </div>
+</div>	
+
