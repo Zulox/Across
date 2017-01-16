@@ -7,7 +7,7 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('publishing.pubpanel', {
+        .state('user.publishing.pubpanel', {
           url: '/panel',
           templateUrl: 'app/pages/publishing/pubpanel/pubpanel.html',
           title: 'Panel',

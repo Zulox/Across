@@ -37,7 +37,7 @@
 
 			  	TempData.$loaded().then(function () {		
 					AuthUser.setConnecting(TempData);
-					 $state.go('addadvert');
+					 $state.go('user.addadvert');
 					 toastr.success('Login Successful');
 				});	
 			  }, function (error){

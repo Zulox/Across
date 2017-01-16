@@ -7,7 +7,7 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('template', {
+        .state('user.template', {
           url: '/template',
           templateUrl: 'app/pages/template/template.html',
           title: 'template',

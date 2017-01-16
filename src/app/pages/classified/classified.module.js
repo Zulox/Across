@@ -7,13 +7,13 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('classified', {
-          url: '/classified',
+        .state('user.classified', {
+          url: '/logout',
           templateUrl: 'app/pages/classified/classified.html',
-          title: 'Classified',
+          title: 'LOG OUT',
           controller: 'staycool as vm',
           sidebarMeta: {
-            order: 5,
+            order: 500,
           },
         });
   }

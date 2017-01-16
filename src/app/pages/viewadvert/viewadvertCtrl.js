@@ -7,6 +7,7 @@
   function viewadvertCtrl(  viewadvertFac, $firebaseArray) {    	
 		var vm = this;
 
+    vm.defaultpic = "assets/img/noimage.png";
 
 
 

@@ -41,7 +41,7 @@
 
              var currentUser = AuthUser.getConnecting();
              var userID  = currentUser.$id;
-             userID = 'mkPtVM3quATFzX5lYnbpj42CdPu1';
+             // userID = 'mkPtVM3quATFzX5lYnbpj42CdPu1';
 
              publisherRef.child(userID + '/publisher').once("value", function(snapshot) {
                 console.log(snapshot.exists());

@@ -24,48 +24,23 @@
   <!-- endinject -->
   <!-- endbuild -->
 
-
   
 </head>
 <body>
-<div class="body-bg"></div>
-<main ng-if="$pageFinishedLoading" ng-class="{ 'menu-collapsed': $baSidebarService.isMenuCollapsed() }">
 
-  <ba-sidebar></ba-sidebar>
-  <page-top></page-top>
-
-  <div class="al-main">
-    <div class="al-content">
-      <content-top></content-top>
-      <div ui-view autoscroll="true" autoscroll-body-top></div>
-    </div>
-  </div>
-
-  <footer class="al-footer clearfix">
-    <div class="al-footer-right">Developed by Zulox <i class="ion-heart"></i></div>
-    <div class="al-footer-main clearfix">
-      <div class="al-copy">Across 2017</div>
-      <ul class="al-share clearfix">
-        <li><a href="http://www.facebook.com/Zoohilman" target="_blank"><i class="socicon socicon-facebook"></i></a></li>
-        <li><a href="http://www.twitter.com/Zoohilman" target="_blank"><i class="socicon socicon-twitter"></i></a></li>        
-        <li><a href="https://github.com/Zulox" target="_blank"><i class="socicon socicon-github"></i></a></li>
-      </ul>
-    </div>
-  </footer>
-
-  <back-top></back-top>
-</main>
-
-<div id="preloader" ng-show="!$pageFinishedLoading">
-  <div></div>
+<div ui-view></div> 
+<div ui-view="user">
+    
 </div>
+
 
 <!-- build:js(src) scripts/vendor.js -->
 <!-- bower:js -->
 <!-- run `gulp inject` to automatically populate bower script dependencies -->
 <!-- endbower -->
 <!-- endbuild -->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
 
 <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
 <!-- inject:js -->

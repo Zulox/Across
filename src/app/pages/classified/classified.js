@@ -11,7 +11,7 @@
 		   vm.signout = function(){				
 			  Auth.$signOut().then(function (user){
 			    console.log("user signed out");
-			    $state.go('register');
+			    $state.go('login');
 			  }, function (error){
 			    vm.error = error;
 			  });

@@ -17,7 +17,7 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('charts.morris', {
+        .state('user.charts.morris', {
           url: '/morris',
           templateUrl: 'app/pages/charts/morris/morris.html',
           title: 'Morris',

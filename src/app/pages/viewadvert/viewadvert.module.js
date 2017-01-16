@@ -7,7 +7,7 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('viewadvert', {
+        .state('user.viewadvert', {
           url: '/viewadvert',
           templateUrl: 'app/pages/viewadvert/viewadvert.html',
           title: 'View Advert',

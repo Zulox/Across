@@ -16,7 +16,7 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('charts', {
+        .state('user.charts', {
           url: '/charts',
           abstract: true,
           template: '<div ui-view  autoscroll="true" autoscroll-body-top></div>',

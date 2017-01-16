@@ -20,13 +20,13 @@
         var isMenuCollapsed = shouldMenuBeCollapsed();
 
         this.getMenuItems = function() {
-          var states = defineMenuItemStates();
+          var states = defineMenuItemStates();    
           var menuItems = states.filter(function(item) {
             return item.level == 0;
           });
 
           menuItems.forEach(function(item) {
-            var children = states.filter(function(child) {
+            var children = states.filter(function(child) {            
               return child.level == 1 && child.name.indexOf(item.name) === 0;
             });
             item.subMenu = children.length ? children : null;
@@ -65,21 +65,26 @@
 
         function defineMenuItemStates() {
           return $state.get()
-              .filter(function(s) {
+              .filter(function(s) { 
                 return s.sidebarMeta;
               })
               .map(function(s) {
                 var meta = s.sidebarMeta;
-                return {
+                var filtereditem = {
                   name: s.name,
                   title: s.title,
-                  level: (s.name.match(/\./g) || []).length,
+                  level: (s.name.match(/\./g) || []).length - 1,
                   order: meta.order,
                   icon: meta.icon,
                   stateRef: s.name,
                 };
+
+                return filtereditem;
+
+
+
               })
-              .sort(function(a, b) {
+              .sort(function(a, b) {               
                 return (a.level - b.level) * 100 + a.order - b.order;
               });
         }

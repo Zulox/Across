@@ -11,7 +11,7 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-      .state('components.timeline', {
+      .state('user.components.timeline', {
         url: '/timeline',
         templateUrl: 'app/pages/components/timeline/timeline.html',
           title: 'Timeline',

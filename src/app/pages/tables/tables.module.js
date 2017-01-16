@@ -11,28 +11,28 @@
   /** @ngInject */
   function routeConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-        .state('tables', {
+        .state('user.tables', {
           url: '/tables',
           template : '<ui-view  autoscroll="true" autoscroll-body-top></ui-view>',
           abstract: true,
           controller: 'TablesPageCtrl',
           title: 'Tables',
-          sidebarMeta: {
+          sidebarMeta: {        
             icon: 'ion-grid',
             order: 300,
           },
-        }).state('tables.basic', {
+        }).state('user.tables.basic', {
           url: '/basic',
           templateUrl: 'app/pages/tables/basic/tables.html',
           title: 'Basic Tables',
-          sidebarMeta: {
+          sidebarMeta: {            
             order: 0,
           },
-        }).state('tables.smart', {
+        }).state('user.tables.smart', {
           url: '/smart',
           templateUrl: 'app/pages/tables/smart/tables.html',
           title: 'Smart Tables',
-          sidebarMeta: {
+          sidebarMeta: {            
             order: 100,
           },
         });

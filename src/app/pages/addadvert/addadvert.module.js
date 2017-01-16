@@ -7,7 +7,7 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('addadvert', {
+        .state('user.addadvert', {
           url: '/addadvert',
           templateUrl: 'app/pages/addadvert/addadvert.html',
           title: 'Upload',

@@ -58,7 +58,7 @@
     					Name: vm.advertisement.name,
 				     	Keyword: vm.advertisement.keyword,
 				    	LandingURL: vm.advertisement.landingURL,
-				    	BannerURL : "URL",
+				    	BannerURL : vm.advertisement.banner,
 				    	Budget : vm.advertisement.budget,
 				    	Remainbudget : vm.advertisement.budget,
 				    	Status : "Pending",

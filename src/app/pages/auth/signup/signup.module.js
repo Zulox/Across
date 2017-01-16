@@ -17,7 +17,7 @@
             mustnotAuth: function($state, Auth){
               return Auth.$requireSignIn().then(function(auth){
                 console.log("user logged in");
-                $state.go('dashboard');
+                $state.go('user.dashboard');
               }, function(error){
                   console.log("not logged in");
               });

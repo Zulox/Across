@@ -11,7 +11,10 @@
     'BlurAdmin.pages.addadvert',
     'BlurAdmin.pages.viewadvert',
     'BlurAdmin.pages.auth',
+    'BlurAdmin.pages.user',
     'BlurAdmin.pages.template',
+
+
     'BlurAdmin.pages.dashboard',
     'BlurAdmin.pages.ui',    
     'BlurAdmin.pages.form',
@@ -24,7 +27,7 @@
 
   /** @ngInject */
   function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
-    $urlRouterProvider.otherwise('/classified');
+    $urlRouterProvider.otherwise('/user/dashboard');
 
     baSidebarServiceProvider.addStaticItem({
       title: 'Pages',

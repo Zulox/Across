@@ -53,7 +53,7 @@
 				    funds : 0,
 				    level : "USER",
 				  });
-				  $state.go('home');
+				  $state.go('user.dashboard');
 				  console.log("Done");
 				} else {
 				  console.log("Logged out");
