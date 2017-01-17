@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.auth')
+  angular.module('BlurAdmin.pages.auth.signup')
       .controller('AuthSignupCtrl', AuthSignupCtrl);
   /** @ngInject */
   function AuthSignupCtrl($scope, $state, Auth) {

@@ -7,21 +7,10 @@
 
   angular.module('BlurAdmin.pages', [
     'ui.router',
-    'BlurAdmin.pages.classified',
-    'BlurAdmin.pages.addadvert',
-    'BlurAdmin.pages.viewadvert',
     'BlurAdmin.pages.auth',
+    'BlurAdmin.pages.admin',
     'BlurAdmin.pages.user',
-    'BlurAdmin.pages.template',
 
-
-    'BlurAdmin.pages.dashboard',
-    'BlurAdmin.pages.ui',    
-    'BlurAdmin.pages.form',
-    'BlurAdmin.pages.tables',
-    'BlurAdmin.pages.charts',  
-    'BlurAdmin.pages.publishing',
-    'BlurAdmin.pages.profile',
   ])
       .config(routeConfig);
 

@@ -20,10 +20,27 @@
         var isMenuCollapsed = shouldMenuBeCollapsed();
 
         this.getMenuItems = function() {
-          var states = defineMenuItemStates();    
-          var menuItems = states.filter(function(item) {
-            return item.level == 0;
+
+          var currentState =  $state.current.name.split('.')[0];
+        
+          var states = defineMenuItemStates();
+
+          var menuItems;
+
+          if(currentState === "user"){
+          menuItems = states.filter(function(item ) {         
+          //  console.log(item.name.split('.')[0]);
+            return (item.level == 0   && item.name.split('.')[0] === 'user' );
           });
+          }
+          else if(currentState === "admin"){
+           menuItems = states.filter(function(item ) {              
+          //  console.log(item.name.split('.')[0]);
+            return (item.level == 0   && item.name.split('.')[0] === 'admin' );
+          });
+
+          }
+
 
           menuItems.forEach(function(item) {
             var children = states.filter(function(child) {            
