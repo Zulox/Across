@@ -5,13 +5,13 @@ This Project is not complete and actively being developed, come back and check i
 
 
 Some picture on how it would look like
-**[ACROSS]**         
-:-------------------------:
+| **[ACROSS]**         
+|:-------------------------:
 ![Login](http://i.imgur.com/aLQRVDH.png) 
-:-------------------------:
-![Add Advertisement](http://i.imgur.com/1asoc6o.png) 
-:-------------------------:
-![View Advertisement](http://i.imgur.com/lQgJJIw.png) 
+|:-------------------------:
+|![Add Advertisement](http://i.imgur.com/1asoc6o.png) 
+|:-------------------------:
+|![View Advertisement](http://i.imgur.com/lQgJJIw.png) 
 
 
 #ACROSS - Advertisement Click Response Optimization Service Solution
