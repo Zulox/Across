@@ -18,8 +18,7 @@ my FYP project that cover advertisement stuff
 
 main file to check and review are in the src/app
 
-##Want to get the general idea of it??
-Check it out at : https://zulox.github.io/
+
 
 
 

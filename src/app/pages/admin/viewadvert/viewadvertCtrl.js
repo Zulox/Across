@@ -17,10 +17,11 @@
 		}
 
 		aviewadvertFac.getAdvert().then(function(data){
-            vm.advertisements = data;
-            console.log( vm.advertisements);
-        });
+       vm.advertisements = data;   
+       console.log(data)        ;
+    });
 
+  // aviewadvertFac.getAdvert();
   }
 
   	

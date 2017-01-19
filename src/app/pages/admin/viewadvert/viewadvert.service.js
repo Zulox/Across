@@ -8,25 +8,31 @@
            var vm = this;
 
            vm.rootpath  = new firebase.database().ref();
-           
-           
+            
           function getAdvert(){
             var deferred = $q.defer();
-
-
             var advertRef = new firebase.database().ref('advertisement');
-    
+            var userRef = new firebase.database().ref('users');           
+
             $firebaseArray(advertRef).$loaded().then(function (advertisements){
-              deferred.resolve(advertisements);
+
+                    advertisements.forEach(function(adSnap, i) {   
+
+                        var query =  userRef.orderByChild('advertisement/'+adSnap.$id).equalTo(true);
+                        $firebaseArray(query).$loaded().then(function (owner){                         
+                         advertisements[i] = extend({},  advertisements[i] , owner ) ;  
+                                              
+                      });
+                  }); 
+                     
+               deferred.resolve(advertisements);    
             });
-
-
-
-             return deferred.promise;
+            return deferred.promise;
           }
 
 
-          function function2(){                         
+          function getOwner(advertisements){  
+
           }
 
 
@@ -34,10 +40,24 @@
             
           }
 
+          function extend(base) {
+              var parts = Array.prototype.slice.call(arguments, 1);
+              parts.forEach(function (p) {
+                  if (p && typeof (p) === 'object') {
+                      for (var k in p) {
+                          if (p.hasOwnProperty(k)) {
+                              base[k] = p[k];
+                          }
+                      }
+                  }
+              });
+              return base;
+          }
+
             return {
                   getAdvert     : getAdvert,   
-                  function2     : function2,
-                  function3     : function3                
+                  getOwner      : getOwner,
+                  extend        : extend,                
             };
          });  
 })();
