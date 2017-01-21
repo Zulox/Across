@@ -10,7 +10,7 @@
         .state('user.addadvert', {
           url: '/addadvert',
           templateUrl: 'app/pages/user/addadvert/addadvert.html',
-          title: 'Upload',
+          title: 'Add Advert',
           controller: 'addadvertCtrl as vm',
           sidebarMeta: {
             icon: 'ion-compose',

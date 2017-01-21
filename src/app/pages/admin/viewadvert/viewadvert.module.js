@@ -1,7 +1,9 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.admin.viewadvert', [])
+  angular.module('BlurAdmin.pages.admin.viewadvert', [  
+                 'BlurAdmin.pages.admin.viewadvert.advertdetail',  
+    ])
       .config(routeConfig);
 
   /** @ngInject */
@@ -16,7 +18,16 @@
             icon: 'ion-filing',
             order: 3,
           },
+        })
+        .state('admin.viewadvert.hi',{
+            url: '/hi',
+            parent: 'admin.viewadvert',
+            templateUrl: 'app/pages/admin/viewadvert/advertdetail/hi.html',
+           
         });
+
+
+        
   }
 
 })();
