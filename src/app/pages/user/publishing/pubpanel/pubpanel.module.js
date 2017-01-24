@@ -10,7 +10,7 @@
         .state('user.publishing.pubpanel', {
           url: '/panel',
           templateUrl: 'app/pages/user/publishing/pubpanel/pubpanel.html',
-          title: 'Panel',
+          title: 'Publishing',
           controller: 'pubpanelCtrl as vm',          
           sidebarMeta: {           
             order: 0,

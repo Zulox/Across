@@ -1,27 +1,55 @@
-<div class="row" >
-	<div class="col-md-6 col-lg-6" ng-show="!vm.pubexist">	
-		<div  class="panel panel-success bootstrap-panel">
-		 <div class="panel-heading">Advertisement Publishing</div>		 
-		 	<div class="panel-body">
-		 		<p>Start earning money with us by becoming our publisher. Starting your publishing journey is free!!! <br>
-		 		Click the button below to start!</p>
-		 		 <div class="text-center">
-				    <button ng-click="vm.becomePub()" class="btn  btn-lg btn-info">START</button>  
-				     <button ng-click="vm.CheckPub()" class="btn  btn-lg btn-info">CHECK</button>  
-				 </div> 
-		 	</div>        
- 		</div>
-  	</div>
-
-	<div class="col-md-6 col-lg-6" ng-show="vm.pubexist">	
-		<div  class="panel panel-info bootstrap-panel">
-		 <div class="panel-heading">Your INFO</div>		 
-		 	<div class="panel-body">
-		 		<p>Total View    :  </p>
-		 		<p>Total Click   :  </p> 
-		 		<p>Total Revenue :  </p>		 		
-		 	</div>        
- 		</div>
-  	</div>
-
+<div class="row" style="font-size: 2em;">	
+	<div ba-panel="" class="col-md-4 col-xs-12 text-center ">
+		<i class="ion-refresh"></i>
+		Total View : <span><br>{{vm.TotalView}}</span>
+	</div>
+	<div ba-panel=" " class=" col-md-4 col-xs-12 text-center">
+		<i class="ion-shuffle"></i>
+		Total Click : <span><br>{{vm.TotalClick}}</span>
+	</div>
+	<div ba-panel=" " class=" col-md-4 col-xs-12 text-center">
+		<i class="ion-cash"></i>		
+		Total Revenue : <br>RM <span>{{vm.TotalRevenue}}</span>
+	</div>
 </div>
+<div class="row" >	
+	
+ <div class="panel-group">
+
+ 	<!-- put ng-repeat in the next line -->
+ 	<div class=" col-xs-12 col-sm-6" ng-repeat="  adpub in vm.Alladpub">
+	<div class="panel twozeromargin panel-primary bootstrap-panel" >
+	      
+	        <div class="panel-heading whitetext">{{adpub.advertisement.Name}}</div>
+	        <div class="panel-body">
+	          <div class="col-md-12 col-xs-12">
+	          <div class="img-viewadvert"><a href="{{adpub.advertisement.LandingURL}}" target="_blank"><img ng-src="{{adpub.advertisement.BannerURL}}" alt=""  onerror="this.onerror=null;this.src='assets/img/noimage.png';" ></a></div>
+	          </div>
+	          <div class="col-md-6 col-xs-12">	         	
+	          		<div class="col-xs-6">	                 		
+	          		<h3>View</h3>  
+	          		</div>
+	          		<div class="col-xs-6">	                 		
+	          		<h3>: {{adpub.view}}</h3>
+	          		</div>	  
+	          		<div class="col-xs-6">	                 		
+	          		<h3>Click</h3>
+	          		</div>
+	          		<div class="col-xs-6">	                 		
+	          		<h3>: {{adpub.click}}</h3>
+	          		</div>	        		          	 	          	
+	          		<div class="col-xs-6">	                 		
+	          		<h3>Revenue</h3>
+	          		</div>
+	          		<div class="col-xs-6">	                 		
+	          		<h3>: RM {{adpub.revenue}}</h3>
+	          		</div>      		
+								          			          				          		          		      	   
+	          </div>
+	        </div>	
+	            
+  	</div>
+  	</div>  	
+  </div>
+</div>
+

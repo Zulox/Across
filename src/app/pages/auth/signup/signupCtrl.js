@@ -71,6 +71,7 @@
 
                 foo[uid] = true;
                 vm.setpublisher.Owner = foo;
+                vm.setpublisher.Owner.fullname = vm.user.fullname;
 
                 vm.publisher.$add(vm.setpublisher).then(function(pub){
                 
@@ -99,14 +100,18 @@
 							vm.adpublishing = {
 				                view : 0,
 				                click: 0,
+				                revenue: 0,
 			    	            publisher: {},
 			        	        advertisement: {},
 				            };
 				            
 				            vm.adpublishing.publisher[transferid] = true;
-				    
+				    	
 				            vm.adpublishing.advertisement[advertisement.$id] = true; 
-				            
+				            vm.adpublishing.advertisement.BannerURL = advertisement.BannerURL;
+				            vm.adpublishing.advertisement.LandingURL = advertisement.LandingURL;
+				            vm.adpublishing.advertisement.Name = advertisement.Name;
+				         
 				            //add the adpublishing
 				            $firebaseArray(AdpubRef).$add(vm.adpublishing).then(function(newid){
 				            	
@@ -122,8 +127,14 @@
 				                farrayAds.$save(advertisement);		
 
 				                
-				                var connectionPub = vm.publisher.$getRecord(transferid);				                 
-				                connectionPub.adpublishing = {};				                
+				                var connectionPub = vm.publisher.$getRecord(transferid);				                 				               
+
+				                if ( connectionPub.adpublishing == null ||  connectionPub.adpublishing == ""){
+					                connectionPub.adpublishing = {}
+			                  	}
+
+
+
 				                var pubads = connectionPub.adpublishing;
 				                pubads[newid.key] = true;
 				                console.log(connectionPub);
