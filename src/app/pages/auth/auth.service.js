@@ -25,8 +25,18 @@
               setConnecting: function(data){
                userinfo = data;              
               },
-              getConnecting: function(data){
-               return userinfo;              
+              getConnecting: function(){
+                firebase.auth().onAuthStateChanged(function(user) {                  
+                if (user) {              
+                    userinfo = $firebaseObject(usersRef.child(user.uid));
+                    userinfo.$loaded().then(function (){
+                    
+                    });
+                } else {
+                  console.log("no log");
+                }
+              });
+                   return userinfo;
               },
               getDisplayName: function(uid){
                 return users.$getRecord(uid).displayName;

@@ -11,6 +11,12 @@
           url: '/addadvert',
           templateUrl: 'app/pages/user/addadvert/addadvert.html',
           title: 'Add Advert',
+          resolve: {
+            getAuth: function(AuthUser){
+                AuthUser.getConnecting();
+
+            }
+          },
           controller: 'addadvertCtrl as vm',
           sidebarMeta: {
             icon: 'ion-compose',

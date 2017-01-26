@@ -94,6 +94,10 @@
 
               vm.adpublishing.advertisement[adsid] = true;
               vm.adpublishing.publisher[publisher.$id] = true;
+              vm.adpublishing.advertisement.BannerURL = vm.advertisement.BannerURL;
+              vm.adpublishing.advertisement.LandingURL = vm.advertisement.LandingURL;
+              vm.adpublishing.advertisement.Name = vm.advertisement.Name;
+
 
               $firebaseArray(AdpubRef).$add(vm.adpublishing).then(function(newid) {
                   

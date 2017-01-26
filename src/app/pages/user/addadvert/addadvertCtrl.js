@@ -6,30 +6,12 @@
   /** @ngInject */
   function addadvertCtrl($scope, $state, AuthUser, $firebaseArray,  $uibModal, toastr) {    	
     		var vm = this;
-    		// bower install --save angular
-			/*
-			Adding attribute to the controller
-			vm.example;
-
-			Adding function example
-			vm.functionexample = functionexample;
-
-			function functionexample(){
-			 
-			}
-			*/
-			vm.user;
+    	
+		
+		
 			vm.advertisement;
 			vm.open = open;
 			vm.Addads =  vm.Addads;
-			//vm.register = register;
-
-
-
-			vm.user = {
-		      email: '',
-		      password: '',		 
-		    };
 
 
 		    function Addads(){
@@ -71,15 +53,18 @@
     				.then(function(pogback) {
 				  var id = pogback.key;
 				  rootpath.child("/users/"+ vm.userID+"/advertisement/" + id).set(true);
-				  rootpath.child("/advertisement/"+id+"/Owner/" + vm.userID).set(true);				  
+				  rootpath.child("/advertisement/"+id+"/Owner/" + vm.userID).set(true);
+				  rootpath.child("/advertisement/"+id+"/Owner/fullname").set(currentUser.fullname);							  
 				  toastr.success('Advertisement added and awaiting admin approval');
+				   $state.go('user.viewadvert');
 				});
-
+				
 		    }
 
 
 			function open(page) {
 
+				//add validation in here
 
 		      $uibModal.open({
 		        animation: true,

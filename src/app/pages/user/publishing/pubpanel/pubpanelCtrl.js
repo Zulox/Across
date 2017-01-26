@@ -4,9 +4,9 @@
   angular.module('BlurAdmin.pages.user.publishing.pubpanel')
       .controller('pubpanelCtrl', pubpanelCtrl);
   /** @ngInject */
-  function pubpanelCtrl( $scope, $state,toastr, $firebaseArray) {    	
+  function pubpanelCtrl( $scope, $state,toastr,AuthUser , $firebaseArray) {    	
 		var vm = this;
-
+		var currentUser = AuthUser.getConnecting();
 		vm.TotalView;	
 		vm.TotalClick;
 		vm.TotalRevenue;
@@ -24,8 +24,8 @@
 
 		function getTotal(){
 
-			//simulated data
-			var userID = "mkPtVM3quATFzX5lYnbpj42CdPu1";
+			
+			var userID = currentUser.$id;
 			var PublisherRef =  new firebase.database().ref("publisher");
 			var AdpublisherRef =  new firebase.database().ref("adpublishing");
 			var totalview = 0;

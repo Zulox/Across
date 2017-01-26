@@ -11,6 +11,12 @@
           url: '/panel',
           templateUrl: 'app/pages/user/publishing/pubpanel/pubpanel.html',
           title: 'Publishing',
+          resolve: {
+            getAuth: function(AuthUser){
+                AuthUser.getConnecting();
+
+            }
+          },
           controller: 'pubpanelCtrl as vm',          
           sidebarMeta: {           
             order: 0,

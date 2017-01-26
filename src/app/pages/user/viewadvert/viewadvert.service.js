@@ -10,19 +10,16 @@
            vm.rootpath  = new firebase.database().ref();
            
            
-          function getAdvert(){
-             var deferred = $q.defer();
+          function getAdverts(){
+            var deferred = $q.defer();
 
 
-             var advertRef = new firebase.database().ref('advertisement');
+            var advertRef = new firebase.database().ref('advertisement');
 
-             var currentUser = AuthUser.getConnecting();
-             var userID  = currentUser.$id;
-             // userID = 'mkPtVM3quATFzX5lYnbpj42CdPu1';
-  
-             /*advertRef.orderByChild('Owner/'+userID).equalTo(true).on('value', function(snap) {                
-                deferred.resolve(snap.val());
-            });*/
+            var currentUser = AuthUser.getConnecting();
+         
+            var userID  = currentUser.$id;
+           
             var queryz = advertRef.orderByChild('Owner/'+userID).equalTo(true);
             $firebaseArray(queryz).$loaded().then(function (advertisements){
               deferred.resolve(advertisements);
@@ -43,7 +40,7 @@
           }
 
             return {
-                  getAdvert     : getAdvert,   
+                  getAdverts     : getAdverts,   
                   function2     : function2,
                   function3     : function3                
             };

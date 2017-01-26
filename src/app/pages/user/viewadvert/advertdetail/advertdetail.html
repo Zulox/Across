@@ -1,0 +1,65 @@
+<div class="widgets">
+<div class="row" style="font-size: 2em;">
+	<div ba-panel=" " class=" col-md-3 col-xs-12 text-center">
+		<i class="ion-flag"></i>		
+		Status<br><span>{{vm.advertisement.Status}}</span>
+	</div>	
+	<div ba-panel=" " class=" col-md-3 col-xs-12 text-center">
+		<i class="ion-cash"></i>		
+		Funds Left<br>RM <span>{{vm.advertisement.Remainbudget}}</span>
+	</div>	
+	<div ba-panel="" class="col-md-3 col-xs-12 text-center ">
+		<i class="ion-eye"></i>
+		View<span><br>{{vm.advertisement.Totalview}}</span>
+	</div>
+	<div ba-panel=" " class=" col-md-3 col-xs-12 text-center">
+		<i class="ion-shuffle"></i>
+		Click<span><br>{{vm.advertisement.Totalclick}}</span>
+	</div>
+</div>
+
+<div class="row" >	
+	<div  class="col-md-6 col-xs-12 text-center "
+		  ba-panel 
+		  ba-panel-title="Poster/Banner"
+          ba-panel-class="with-scroll panel-info" >
+            <div  style="overflow: scroll;" class="img-wrapper"><img  id="img_url" src="{{vm.advertisement.BannerURL}}" alt="image Preview" title="" onerror="this.onerror=null;this.src='assets/img/noimage.png';" />
+            </div>
+	</div>
+
+    <div class="col-md-6 col-xs-12 "
+         ba-panel
+         ba-panel-title="Advertisement Detail"
+         ba-panel-class="with-scroll panel-success">
+      <div ng-include="'app/pages/user/viewadvert/advertdetail/widgets/viewads.html'"></div>
+    </div>
+ </div>
+
+
+<div class="row" >	
+	<div class="col-md-6 col-xs-12"  ba-panel ba-panel-title="Meta" >
+	  <div class="form-group">
+	    <label >Created At </label>
+	    <input type="text"  required class="form-control" ng-disabled="true"  ng-value="vm.advertisement.CreatedAt">
+	  </div>
+	  <div class="form-group">
+	    <label >Last Edited</label>
+	    <input type="text"  required class="form-control"  ng-disabled="true"  ng-value="vm.advertisement.LastEdit">
+	  </div>
+ 	</div>
+
+ 	<div class="col-md-6 col-xs-12 text-center"  ba-panel >
+ 	<button type="submit" 
+		 	ng-click="vm.open('app/pages/user/viewadvert/advertdetail/widgets/confirmModal.html', 1)"
+			class="btn  col-xs-10 col-xs-offset-1 btn-info" >
+	EDIT
+	</button>  
+ 	<span class= "btn  col-xs-12" ></span>
+    <button type="submit" 
+		 	ng-click="vm.open('app/pages/user/viewadvert/advertdetail/widgets/confirmModal.html', 0)"
+			class="btn  col-xs-10 col-xs-offset-1 btn-danger" >
+	DELETE
+	</button> 
+	</div>
+</div>
+</div>
