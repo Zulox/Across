@@ -10,6 +10,7 @@
     'BlurAdmin.pages.auth',
     'BlurAdmin.pages.admin',
     'BlurAdmin.pages.user',
+    'BlurAdmin.pages.iframe',
 
   ])
       .config(routeConfig);
