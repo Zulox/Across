@@ -1,7 +1,3 @@
-/**
- * @author v.lugovsky
- * created on 16.12.2015
- */
 (function () {
   'use strict';
 
@@ -15,26 +11,29 @@
           url: '/dashboard',
           templateUrl: 'app/pages/user/dashboard/dashboard.html',
           title: 'Dashboard',
-          resolve: {
-              requireAuth: function($state, Auth, $firebaseObject){
-              return Auth.$requireSignIn().then(function(auth){
-                   var usersRef = firebase.database().ref('users');
-                   var userinfo = $firebaseObject(usersRef.child(auth.uid));
-                   userinfo.$loaded().then(function (){
-                      if(userinfo.level === "ADMIN")
-                    {
-                        $state.go("admin.dashboard");
-                    }                      
-                   });
+          resolve: {            
+            requireAuth: function($state, Auth,AuthUser, $firebaseObject){
+            return Auth.$requireSignIn().then(function(auth){
+                  AuthUser.getConnecting();
+                 var usersRef = firebase.database().ref('users');
+                 var userinfo = $firebaseObject(usersRef.child(auth.uid));
+                 userinfo.$loaded().then(function (){
+                    if(userinfo.level === "ADMIN")
+                  {
+                      $state.go("admin.dashboard");
+                  }                      
+                 });
 
-              }, function(error){
-                 $state.go("login");
-              });
+            }, function(error){
+               $state.go("login");
+            });
             }
+          
           },
-          sidebarMeta: {
-            icon: 'ion-android-home',
+          controller: 'dashboardCtrl as vm',          
+          sidebarMeta: {           
             order: 0,
+            icon: 'ion-home',
           },
         });
   }

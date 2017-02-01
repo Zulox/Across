@@ -18,7 +18,7 @@
 		
 		vm.getTotal = getTotal;
 		
-		console.log(vm.yolo);
+		vm.UniqueSnippet;
 
 		getTotal();
 
@@ -38,12 +38,13 @@
 
 			var query2;
 			var AdpublisherArray ;
-
+			
 
             vm.PublisherArray.$loaded().then(function (publishers){
             	console.log(publishers);
+            	
               	publishers.forEach(function(publisher) { 
-
+				vm.UniqueSnippet = '<iframe height ="300px" width="300px" src="https://across-be2bb.firebaseapp.com/#/frame/' + publisher.$id + '"></iframe>';
 	            	query2 =   AdpublisherRef.orderByChild('publisher/'+publisher.$id).equalTo(true);
 
 	            	AdpublisherArray  = $firebaseArray(query2);
@@ -54,12 +55,17 @@
 	            		     			            	
 	            			totalview = totalview + adpub.view;
 							totalclick = totalclick + adpub.click; 
-							totalrevenue = totalrevenue + adpub.revenue;           			         		
+							totalrevenue = totalrevenue + adpub.revenue;  
+							          			         		
 	            		});
 	            		            		            
 					publisher.Totalview =  totalview;
 					publisher.Totalclick =  totalclick;
-		            publisher.Totalrevenue  =   totalrevenue;     		          
+		            publisher.Totalrevenue  =   totalrevenue;
+		            publisher.Totalrevenue = Math.round(publisher.Totalrevenue * 100) / 100;
+		            console.log(publisher.Totalrevenue);
+		            
+		              		          
 	            	vm.PublisherArray.$save(publisher);
 
 	            	vm.TotalView = publisher.Totalview;

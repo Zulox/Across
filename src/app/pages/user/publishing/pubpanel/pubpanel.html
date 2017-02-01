@@ -12,6 +12,33 @@
 		Total Revenue : <br>RM <span>{{vm.TotalRevenue}}</span>
 	</div>
 </div>
+<div class="row" >
+	<div class=" col-xs-12 col-md-12 text-center">	
+		<button type="button" 
+				class="btn btn-info btn-lg"
+				ng-click="showSnippet = true"
+                ng-show="!showSnippet">       
+                Get Publishing Code
+        </button>
+
+        <button type="button" 
+				class="btn btn-warning btn-lg"
+				ng-click="showSnippet = false"
+                ng-show="showSnippet">       
+                Close
+        </button>
+
+        <br><br>
+		
+		<div ba-panel=" " class=" col-md-12 col-xs-12 text-center" ng-if="showSnippet">
+				
+		{{vm.UniqueSnippet}}
+		</div>
+
+
+		
+	</div>
+</div>
 <div class="row" >	
 	
  <div class="panel-group">

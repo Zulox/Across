@@ -88,6 +88,7 @@
                vm.adpublishing = {
                 view : 0,
                 click: 0,
+                revenue: 0,
                 publisher: {},
                 advertisement: {},
               };

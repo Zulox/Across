@@ -36,9 +36,12 @@
 
 	    	 		vm.selad.Totalview++;
 	    	 		vm.selad.Remainbudget -= 0.10;
+	    	 		vm.selad.Remainbudget =  Math.round( vm.selad.Remainbudget * 100) / 100;
 
 	    	 	 	vm.randomAds.view++;
 	    	        vm.randomAds.revenue += 0.10;
+	    	         vm.randomAds.revenue =  Math.round( vm.randomAds.revenue * 100) / 100;
+	    	        
 
 	    	        console.log(vm.selad);
 	    	        console.log(vm.randomAds);
@@ -62,9 +65,11 @@
 	    function adsClick(){
 	    	vm.selad.Totalclick++;
 	    	vm.selad.Remainbudget -= 0.50;
+	    	vm.selad.Remainbudget =  Math.round( vm.selad.Remainbudget * 100) / 100;
 
 	    	vm.randomAds.click++;
 	        vm.randomAds.revenue += 0.50;
+	        vm.randomAds.revenue =  Math.round( vm.randomAds.revenue * 100) / 100;
 	        
 
 	        vm.adArray.$save(vm.selad);
