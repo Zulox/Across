@@ -98,6 +98,8 @@
               vm.adpublishing.advertisement.BannerURL = vm.advertisement.BannerURL;
               vm.adpublishing.advertisement.LandingURL = vm.advertisement.LandingURL;
               vm.adpublishing.advertisement.Name = vm.advertisement.Name;
+              vm.adpublishing.advertisement.Basevalue = vm.advertisement.Basevalue;
+              vm.adpublishing.advertisement.Status = 'Active';
 
 
               $firebaseArray(AdpubRef).$add(vm.adpublishing).then(function(newid) {

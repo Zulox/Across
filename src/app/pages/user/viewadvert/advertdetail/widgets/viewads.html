@@ -4,16 +4,16 @@
     <input type="text" required class="form-control"    ng-model="vm.advertisement.Name">
   </div>
   <div class="form-group">
-    <label for="exampleInputKeyword1">Keyword</label>
-    <input type="text" required class="form-control"    ng-model="vm.advertisement.Keyword">
-  </div>
-    <div class="form-group">
     <label for="exampleInputlanding1">landing Page URL  </label>
     <input type="text" required class="form-control"    ng-model="vm.advertisement.LandingURL">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Budget [RM]</label>
     <input type="text"  required class="form-control"   ng-model="vm.advertisement.Budget">
+  </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">Value per view [Cost per view]</label>
+    <input type="text"  required class="form-control" ng-disabled="true"  ng-value="vm.advertisement.Basevalue">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">banner URL</label>

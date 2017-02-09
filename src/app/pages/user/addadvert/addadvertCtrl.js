@@ -38,7 +38,7 @@
     			advertisements
     				.$add({  
     					Name: vm.advertisement.name,
-				     	Keyword: vm.advertisement.keyword,
+				     	Basevalue: vm.advertisement.basevalue,
 				    	LandingURL: vm.advertisement.landingURL,
 				    	BannerURL : vm.advertisement.banner,
 				    	Budget : vm.advertisement.budget,
