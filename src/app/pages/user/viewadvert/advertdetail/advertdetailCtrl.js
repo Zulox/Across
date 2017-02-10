@@ -54,36 +54,84 @@
           console.log(currentUser);
           vm.advertisement.LastEdit = FromDate;
 
-          //Atomic Update
-          var query = rootRef.child('advertisement/'+vm.advertisement.$id+'/AdsPublishing' );
-          query.once('value').then(function (snap){
-            var adpubkey = Object.keys(snap.val());
-            var updateObj = {};
+          var storageRef = firebase.storage().ref();
+
+       
+
+          if(!vm.picFile){
+                var query = rootRef.child('advertisement/'+vm.advertisement.$id+'/AdsPublishing' );
+                query.once('value').then(function (snap){
+                  var adpubkey = Object.keys(snap.val());
+                  var updateObj = {};
+                  
+                  adpubkey.forEach(function (key){                     
+                      updateObj['adpublishing/'+key+ '/advertisement/LandingURL'] =  vm.advertisement.LandingURL;
+                      updateObj['adpublishing/'+key+ '/advertisement/Name'] =  vm.advertisement.Name;
+
+                      //test delete
+                      
+                      
+                  });
+
+                  rootRef.update(updateObj)
+                  .then( function (){
+                    console.log("mushi mushi");
+                  })
+                  .catch( function (){
+                    console.log("no mushi");
+                  });   
+
+                });
+
+          } 
+          else
+          {
+
+            var metadata = {
+              'contentType': vm.picFile.type
+            };
+            storageRef.child('asset/img/advertisement/' + $state.params.id).put(vm.picFile, metadata).then(function(snapshot) {
+             
+              var url = snapshot.downloadURL;
+              rootRef.child("/advertisement/"+$state.params.id+"/BannerURL").set(url).then(function (){
+
+                //Atomic Update
+                var query = rootRef.child('advertisement/'+vm.advertisement.$id+'/AdsPublishing' );
+                query.once('value').then(function (snap){
+                  var adpubkey = Object.keys(snap.val());
+                  var updateObj = {};
+                  
+                  adpubkey.forEach(function (key){
+                      updateObj['adpublishing/'+key+ '/advertisement/BannerURL'] =  url;
+                      updateObj['adpublishing/'+key+ '/advertisement/LandingURL'] =  vm.advertisement.LandingURL;
+                      updateObj['adpublishing/'+key+ '/advertisement/Name'] =  vm.advertisement.Name;
+
+                      //test delete
+                      
+                      
+                  });
+
+                  rootRef.update(updateObj)
+                  .then( function (){
+                    console.log("mushi mushi");
+                  })
+                  .catch( function (){
+                    console.log("no mushi");
+                  });   
+
+                });
+                                 
+             });  
+            }).catch(function(error) {
             
-            adpubkey.forEach(function (key){
-                updateObj['adpublishing/'+key+ '/advertisement/BannerURL'] =  vm.advertisement.BannerURL;
-                updateObj['adpublishing/'+key+ '/advertisement/LandingURL'] =  vm.advertisement.LandingURL;
-                updateObj['adpublishing/'+key+ '/advertisement/Name'] =  vm.advertisement.Name;
-
-                //test delete
-                
-                
+              console.error('Upload failed:', error);
+            
             });
-
-            rootRef.update(updateObj)
-            .then( function (){
-              console.log("mushi mushi");
-            })
-            .catch( function (){
-              console.log("no mushi");
-            })
-            ;   
-
-          });
-
-
+          }
+          
           //rootRef.update('users'+currentUser.$id+ '/advertisement/'+ vm.advertisement.$id);
-          getAds.$save(vm.advertisement).then(function(){                
+          getAds.$save(vm.advertisement).then(function(){
+          console.log(vm.advertisement);                
           toastr.success('Advertisement Updated');
           });
       }
