@@ -23,16 +23,25 @@
 		  ba-panel 
 		  ba-panel-title="Poster/Banner"
           ba-panel-class="with-scroll panel-info" >
-            <div  style="overflow: scroll;" class="img-wrapper"><img  id="img_url" src="{{vm.advertisement.BannerURL}}" alt="image Preview" title="" onerror="this.onerror=null;this.src='assets/img/noimage.png';" />
+            <div  style="overflow: scroll;" class="img-upload"><img  id="img_url" src="{{vm.advertisement.BannerURL}}" alt="image Preview" title="" onerror="this.onerror=null;this.src='assets/img/noimage.png';" />
             </div>
 	</div>
 
-    <div class="col-md-6 col-xs-12 "
-         ba-panel
+    <div class="col-md-6 col-xs-12 ">
+    	<div ba-panel ba-panel-class="with-scroll ">
+		     <button type="submit" 
+				 	ng-click="vm.open('app/pages/user/viewadvert/advertdetail/widgets/confirmModal.html', 1)"
+					class="btn  col-xs-10 col-xs-offset-1 btn-warning" >
+				Topup Advertisement
+			</button>  
+   		 </div>
+
+        <div ba-panel
          ba-panel-title="Advertisement Detail"
          ba-panel-class="with-scroll panel-success">
       <div ng-include="'app/pages/user/viewadvert/advertdetail/widgets/viewads.html'"></div>
-    </div>
+   		 </div>
+   	</div>	 
  </div>
 
 

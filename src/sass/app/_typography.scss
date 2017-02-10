@@ -320,6 +320,16 @@ a.learn-more {
   }
 }
 
+.img-upload {
+  margin-bottom: 19px;
+  margin-top: 5px;
+  overflow: hidden;
+  img {
+    width: 80%;
+	height: 80%;
+  }
+}
+
 .cols-three p {
   margin-bottom: 10px;
 }

@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.user.viewadvert.advertdetail', [])
+  angular.module('BlurAdmin.pages.user.viewadvert.advertdetail', ['ngFileUpload'])
       .config(routeConfig);
 
   /** @ngInject */

@@ -4,7 +4,7 @@
   angular.module('BlurAdmin.pages.user.viewadvert')
       .controller('AdvertdetailCtrl', AdvertdetailCtrl);
   /** @ngInject */
-  function AdvertdetailCtrl(  $firebaseArray, AuthUser, $state, $uibModal, toastr, $scope) {    	
+  function AdvertdetailCtrl(  $firebaseArray, AuthUser, $state, $uibModal, toastr, $scope , Upload) {    	
   	var vm = this;
 
     vm.open = open;

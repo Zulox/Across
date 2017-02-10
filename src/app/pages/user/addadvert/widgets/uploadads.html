@@ -1,24 +1,25 @@
-<form>
+<form name="adads">
   <div class="form-group">
     <label for="exampleInputAdsname1">Advertisement name</label>
-    <input type="text" required class="form-control" ng-model='vm.advertisement.name' id="exampleInputEmail1" placeholder="Brand New Shoe">
+    <input type="text" name="Name" required class="form-control"  ng-model='vm.advertisement.name' id="exampleInputEmail1" placeholder="Brand New Shoe">
   </div>
+
   <div class="form-group">
     <label for="exampleInputlanding1">landing Page URL  </label>
-    <input type="text" required class="form-control" ng-model='vm.advertisement.landingURL' id="exampleInputPassword1" placeholder="www.yourwebsite.com">
+    <input type="url" name="landing" required class="form-control"  ng-model='vm.advertisement.landingURL' id="exampleInputPassword1" placeholder="http://www.yourwebsite.com">
   </div>
+
   <div class="form-group">
     <label for="exampleInputPassword1">Budget [RM]</label>
-    <input type="number"  required class="form-control" ng-model='vm.advertisement.budget' id="exampleInputPassword1" placeholder="120">
+    <input type="number" name="budget"  required class="form-control" ng-blur="vm.budgetchange()" ng-model='vm.advertisement.budget' id="exampleInputPassword1" placeholder="120">
+    <span style="color: red;"  ng-show="vm.validation.budget == false" ><i class="ion-android-warning"></i>Insufficient Funds</span>  
   </div>
+
   <div class="form-group">
-    <label for="exampleInputPassword1">Value per view [Cost per view]</label>
-    <input type="number"  required class="form-control" ng-model='vm.advertisement.basevalue' id="exampleInputPassword1" placeholder="20">
+    <label for="exampleInputPassword1">Value per view [x1 for View][x5 for Click]</label>
+    <input type="number" name='bvalue'  required class="form-control"  ng-model='vm.advertisement.basevalue' id="exampleInputPassword1" placeholder="20"> 
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">banner URL</label>
-    <input type="text"  required class="form-control" ng-model='vm.advertisement.banner' id="exampleInputPassword1" placeholder="website/myimage.png">
-  </div>
+  
 <script>
     function img_pathUrl(input){
    $('#img_url')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
@@ -29,22 +30,25 @@
    
      
     <div class="row">
-          <div class="col-sm-12">
-            <div  style="overflow: scroll;" class="img-wrapper"><img  id="img_url" src="" alt="image Preview" title=""/>
+          <div class="col-sm-12 text-center">
+            <div  style="overflow: scroll;" class="img-upload"><img  id="img_url" src="" alt="image Preview" title=""/>
             </div>
         
           </div>
     </div>
 
-
-
-
-    <input type="file" name="img_file" id="img_file" onChange="img_pathUrl(this);" class="form-control" >
+ <input type="file" id="file" ngf-select ng-model="vm.picFile" name="file" ngf-resize="{width: 300, height: 300}" 
+  accept="image/*" ngf-max-size="2MB" required
+  onChange="img_pathUrl(this);" ng-change="vm.imgchange()" class="form-control">
+<span style="color: red;"  ng-show="vm.validation.img == false" ><i class="ion-android-warning"></i>Invalid format type</span>  
+  
+    <!-- <input type="file" name="file" id="file" ng-model="vm.upimage"  onChange="img_pathUrl(this);" class="form-control" > -->
   </div>
 
  
   <div class="text-center">
-    <button type="submit" ng-click="vm.open('app/pages/user/addadvert/widgets/confirmModal.html')" class="btn  btn-lg btn-info">Submit</button>  
-  </div> 
+   
+    <button type="submit"  ng-disabled="(vm.validation.budget != true) || (vm.validation.img != true)" ng-click="vm.open('app/pages/user/addadvert/widgets/confirmModal.html')" class="btn  btn-lg btn-info">Submit</button>      
+  </div>
 
 </form>
