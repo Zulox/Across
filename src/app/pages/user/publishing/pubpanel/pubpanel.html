@@ -1,15 +1,15 @@
 <div class="row" style="font-size: 2em;">	
 	<div ba-panel="" class="col-md-4 col-xs-12 text-center ">
 		<i class="ion-refresh"></i>
-		Total View : <span><br>{{vm.TotalView}}</span>
+		Total View : <span><br>{{vm.publisher.Totalview}}</span>
 	</div>
 	<div ba-panel=" " class=" col-md-4 col-xs-12 text-center">
 		<i class="ion-shuffle"></i>
-		Total Click : <span><br>{{vm.TotalClick}}</span>
+		Total Click : <span><br>{{vm.publisher.Totalclick}}</span>
 	</div>
 	<div ba-panel=" " class=" col-md-4 col-xs-12 text-center">
 		<i class="ion-cash"></i>		
-		Total Revenue : <br>RM <span>{{vm.TotalRevenue}}</span>
+		Total Revenue : <br>RM <span>{{vm.publisherTotalrevenue}}</span>
 	</div>
 </div>
 <div class="row" >
@@ -70,7 +70,13 @@
 	          		</div>
 	          		<div class="col-xs-6">	                 		
 	          		<h3>: RM {{adpub.revenue}}</h3>
-	          		</div>      		
+	          		</div>
+	          		<div class="col-xs-6">	                 		
+	          		<h3>Status</h3>
+	          		</div>
+	          		<div class="col-xs-6">	                 		
+	          		<h3>: {{adpub.advertisement.Status}}</h3>
+	          		</div>         		
 								          			          				          		          		      	   
 	          </div>
 	        </div>	

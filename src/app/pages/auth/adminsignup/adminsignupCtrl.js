@@ -32,7 +32,7 @@
 				    funds : 0,
 				    level : "ADMIN",
 				  });
-				  $state.go('admin.dashboard');
+				  $state.go('admin.viewadvert');
 				 
 				} else {
 				 

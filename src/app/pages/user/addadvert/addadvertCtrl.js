@@ -9,14 +9,31 @@
     		var vm = this;
     		 
 		
-		
+						
 			vm.advertisement;
 			vm.open = open;
 			vm.Addads =  vm.Addads;
 			vm.imagesTest = imagesTest;
-			vm.imgchange = imgchange;
+			
+			vm.validation = {
+				'all' : false,
+				'img' : false,
+				'value' : false,
+				'budget' : false,
+				'name' : false,
+				'url' : false, 
+			};
+
+
+
+			//validation function			
 			vm.budgetchange = budgetchange;
-			vm.validation = {};
+			vm.imgchange = imgchange;
+			
+			vm.landingchange = landingchange;
+			vm.namechange = namechange;
+			vm.validcheck = validcheck;
+			
 		
 			vm.currentUser = AuthUser.getConnecting();
 
@@ -77,7 +94,7 @@
 		        animation: true,
 		        templateUrl: page,	
 		        controller: 'addadvertCtrl' ,
-		        controllerAs: 'vm',	        
+		        controllerAs: 'vm',		            
 		        resolve: {
 		          items: function () {
 		          	console.log('uibmodal');
@@ -121,7 +138,7 @@
 
 		    function imgchange(){
 		    	var currentUser = AuthUser.getConnecting();
-		    	
+		    if(vm.picFile){	
 				var ext = vm.picFile.name.match(/\.(.+)$/)[1];
 		    	console.log(ext);
 		    	console.log(vm.currentUser);
@@ -135,22 +152,67 @@
 		       		console.log("not valid");
 		       		 vm.validation.img = false;
 		      
-		       }      
-		       console.log(vm.validation);
+		       } 
+		   }     
+		       validcheck();
 		    }
 
 		    function budgetchange(){
-		    	console.log(vm.advertisement.budget);
 		    	console.log(vm.currentUser.funds);
-		    	if(vm.advertisement.budget > vm.currentUser.funds){
-		    		vm.validation.budget = false;
+		    	console.log(vm.advertisement.budget);
+
+		    	if( vm.advertisement.budget && (  vm.currentUser.funds >= vm.advertisement.budget  )){
+		    		vm.validation.budget = true;
 		    	}
 		    	else{
-					vm.validation.budget = true;	    	
+					vm.validation.budget = false;	    	
 		    	}
-		    	console.log(vm.validation);
+
+
+		    	if (vm.advertisement.basevalue < vm.advertisement.budget){
+		    		vm.validation.value = true;
+		    	}
+		    	else{
+		    		vm.validation.value = false;		    		
+		    	}
+		    	validcheck();
 
 		    }
+
+		   
+			function landingchange(){
+
+			} 
+
+			function namechange(){
+				if( vm.advertisement.name){
+					vm.validation.name = true;
+				}
+				else{
+					vm.validation.name = false;
+				}
+
+				if( vm.advertisement.landingURL){
+					vm.validation.url = true;
+				}
+				else{
+					vm.validation.url = false;
+				}
+				validcheck();
+
+
+			}
+
+			function validcheck(){
+				if( (vm.validation.img == true) && (vm.validation.budget == true) && (vm.validation.value == true)
+				 	&& (vm.validation.name == true) && (vm.validation.url == true) 	){
+					vm.validation.all = true;
+				}
+				else{
+					vm.validation.all = false;
+				}
+				console.log(vm.validation);
+			}
 
 
 

@@ -1,23 +1,26 @@
 <form name="adads">
   <div class="form-group">
     <label for="exampleInputAdsname1">Advertisement name</label>
-    <input type="text" name="Name" required class="form-control"  ng-model='vm.advertisement.name' id="exampleInputEmail1" placeholder="Brand New Shoe">
+    <input type="text" name="Name" required class="form-control" ng-blur="vm.namechange()"  ng-model='vm.advertisement.name' id="exampleInputEmail1" placeholder="Brand New Shoe">
+    <span style="color: red;" ng-show="!vm.advertisement.name" >Name required</span>  
   </div>
 
   <div class="form-group">
     <label for="exampleInputlanding1">landing Page URL  </label>
-    <input type="url" name="landing" required class="form-control"  ng-model='vm.advertisement.landingURL' id="exampleInputPassword1" placeholder="http://www.yourwebsite.com">
+    <input type="text" name="landing" required class="form-control" ng-blur="vm.namechange()"  ng-model='vm.advertisement.landingURL'  id="exampleInputPassword1" placeholder="http://www.yourwebsite.com">
+     <span style="color: red;" ng-show="!vm.advertisement.landingURL" >Name required</span>  
   </div>
 
   <div class="form-group">
     <label for="exampleInputPassword1">Budget [RM]</label>
     <input type="number" name="budget"  required class="form-control" ng-blur="vm.budgetchange()" ng-model='vm.advertisement.budget' id="exampleInputPassword1" placeholder="120">
-    <span style="color: red;"  ng-show="vm.validation.budget == false" ><i class="ion-android-warning"></i>Insufficient Funds</span>  
+    <span style="color: red;" ng-hide="!vm.advertisement.budget" ng-show="(vm.validation.budget == false)" ><i class="ion-android-warning"></i>Insufficient Funds</span>  
   </div>
 
   <div class="form-group">
     <label for="exampleInputPassword1">Value per view [x1 for View][x5 for Click]</label>
-    <input type="number" name='bvalue'  required class="form-control"  ng-model='vm.advertisement.basevalue' id="exampleInputPassword1" placeholder="20"> 
+    <input type="number" name='bvalue'  required class="form-control" ng-blur="vm.budgetchange()"  ng-model='vm.advertisement.basevalue' id="exampleInputPassword1" placeholder="20">
+    <span style="color: red;" ng-hide="!vm.advertisement.basevalue" ng-show="(vm.validation.value == false)" ><i class="ion-android-warning"></i>Cannot be more than budget</span>   
   </div>
   
 <script>
@@ -37,10 +40,10 @@
           </div>
     </div>
 
- <input type="file" id="file" ngf-select ng-model="vm.picFile" name="file" ngf-resize="{width: 300, height: 300}" 
+ <input type="file" id="file" ngf-select ng-model="vm.picFile" name="file" ngf-resize="{width: 600, height: 600}" 
   accept="image/*" ngf-max-size="2MB" required
   onChange="img_pathUrl(this);" ng-change="vm.imgchange()" class="form-control">
-<span style="color: red;"  ng-show="vm.validation.img == false" ><i class="ion-android-warning"></i>Invalid format type</span>  
+<span style="color: red;"  ng-hide="!vm.picFile ||  vm.validation.img"  ng-show="vm.validation.img == false" ><i class="ion-android-warning"></i>Invalid format type</span>  
   
     <!-- <input type="file" name="file" id="file" ng-model="vm.upimage"  onChange="img_pathUrl(this);" class="form-control" > -->
   </div>
@@ -48,7 +51,7 @@
  
   <div class="text-center">
    
-    <button type="submit"  ng-disabled="(vm.validation.budget != true) || (vm.validation.img != true)" ng-click="vm.open('app/pages/user/addadvert/widgets/confirmModal.html')" class="btn  btn-lg btn-info">Submit</button>      
+    <button type="submit"  ng-disabled="(vm.validation.all != true) " ng-click="vm.open('app/pages/user/addadvert/widgets/confirmModal.html')" class="btn  btn-lg btn-info">Submit</button>      
   </div>
 
 </form>

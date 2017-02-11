@@ -3,7 +3,7 @@
 
   angular.module('BlurAdmin.pages.admin', [
 
-      'BlurAdmin.pages.admin.dashboard',
+      // 'BlurAdmin.pages.admin.dashboard',
       'BlurAdmin.pages.admin.viewadvert',
       'BlurAdmin.pages.admin.logout',
 
@@ -33,7 +33,7 @@
             }
           },         
           templateUrl: 'app/pages/admin/admin.html',
-          redirectTo: 'admin.dashboard'   
+          redirectTo: 'admin.viewadvert'   
         });
   }
 

@@ -17,7 +17,7 @@
 }
     </script>
  <div class="form-group">
-   <input type="file" id="file" ngf-select ng-model="vm.picFile" name="file" ngf-resize="{width: 300, height: 300}" 
+   <input type="file" id="file" ngf-select ng-model="vm.picFile" name="file" ngf-resize="{width: 600, height: 600}" 
   accept="image/*" ngf-max-size="2MB" required
   onChange="img_pathUrl(this);" class="form-control">
 <span style="color: red;"  ng-show="vm.validation.img == false" ><i class="ion-android-warning"></i>Invalid format type</span>  

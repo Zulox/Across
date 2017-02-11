@@ -30,11 +30,33 @@
     <div class="col-md-6 col-xs-12 ">
     	<div ba-panel ba-panel-class="with-scroll ">
 		     <button type="submit" 
-				 	ng-click="vm.open('app/pages/user/viewadvert/advertdetail/widgets/confirmModal.html', 1)"
+				 	ng-click="vm.topup = true"
 					class="btn  col-xs-10 col-xs-offset-1 btn-warning" >
 				Topup Advertisement
+			</button>
+			<br>
+			<br>
+			<br>
+
+			<div ng-show="vm.topup" class="text-center">
+			<div class="form-group" >
+			    <label >Ammount</label>
+			    <input type="number"  required class="form-control"   ng-model="vm.topupAmmount">
+			    <span style="color: red;"  ng-show="vm.budget.error" ><i class="ion-android-warning"></i>insufficient funds
+			    </span>
+			</div>
+			<button type="submit" 
+				 	ng-click="vm.topupfunc()"
+					class="btn  col-xs-4  col-xs-offset-1 btn-success" >
+				Confirm
+			</button>
+			<button type="submit" 
+				 	ng-click="vm.topup = false"
+					class="btn  col-xs-4  col-xs-offset-2 btn-danger" >
+				Cancel
 			</button>  
-   		 </div>
+			</div>
+   		</div>
 
         <div ba-panel
          ba-panel-title="Advertisement Detail"

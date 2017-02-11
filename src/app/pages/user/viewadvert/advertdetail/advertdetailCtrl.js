@@ -8,7 +8,19 @@
   	var vm = this;
 
     vm.open = open;
+    vm.topup = false;
+    vm.topupAmmount;
+    vm.budget= {}; 
     
+    vm.topupfunc = topupfunc;
+
+
+
+
+
+
+
+    vm.cUser = AuthUser.getConnecting();
     var currentUser = AuthUser.getConnecting();
 
    
@@ -24,21 +36,24 @@
     function open(page, type) {
 
 
-          $uibModal.open({
+         vm.modal= $uibModal.open({
             animation: true,
             templateUrl: page,  
             controller: 'AdvertdetailCtrl' ,
-            controllerAs: 'vm',         
-            resolve: {
-              items: function () {                
-                return $scope.items;
+            controllerAs: 'vm',
+            dismiss: {
+              items: function () {
+                console.log('gonzo');               
               }
-            }
-          }).closed.then(function(){
+            }            
+            
+          }).close(function(what){
+          console.log(vm.modal);
+
+          //Append(type);
          
-          Append(type);
-         
-        });
+        })
+        ;
     }
 
     function Append(type) {
@@ -137,18 +152,77 @@
       }
       else if(type == 0){      
 
-          
-          getAds.$remove(vm.advertisement).then(function(){
-          var updateObj = {};
-          updateObj['users/'+currentUser.$id+ '/advertisement/'+ vm.advertisement.$id] =  null;
+          var query = rootRef.child('advertisement/'+vm.advertisement.$id+'/AdsPublishing' );
+          query.once('value').then(function (snap){
+            var adpubkey = Object.keys(snap.val());
+            var updateObj = {};
+            
+            adpubkey.forEach(function (key){                                           
+                updateObj['adpublishing/'+key+ '/advertisement/Status'] = "Inactive";
+            });  
+            console.log(updateObj);
 
-          rootRef.update(updateObj);
+            getAds.$remove(vm.advertisement).then(function(){
+            
+            updateObj['users/'+currentUser.$id+ '/advertisement/'+ vm.advertisement.$id] =  null;
 
-          $state.go('user.viewadvert');
-          toastr.warning('Advertisement Deleted');
+            rootRef.update(updateObj);
 
+            $state.go('user.viewadvert');
+            toastr.warning('Advertisement Deleted');
+            });
           });
       }      
+    }
+
+
+
+
+
+    function topupfunc(){
+      var rootRef = new firebase.database().ref();
+
+      if(vm.topupAmmount){
+        if( vm.cUser.funds >= vm.topupAmmount){
+          vm.budget.error = false;
+          vm.advertisement.Budget +=  vm.topupAmmount;
+          getAds.$save(vm.advertisement).then(function(){
+            
+            if( (vm.advertisement.Status === "Inactive") && (vm.advertisement.Budget > 0)){
+                var query = rootRef.child('advertisement/'+vm.advertisement.$id+'/AdsPublishing' );
+                query.once('value').then(function (snap){
+                  var adpubkey = Object.keys(snap.val());
+                  var updateObj = {};
+                  
+                  adpubkey.forEach(function (key){                                           
+                      updateObj['adpublishing/'+key+ '/advertisement/Status'] = "Active";
+                  });
+
+                   updateObj['advertisement/'+vm.advertisement.$id+'/Status'] = "Active";
+
+                  rootRef.update(updateObj)
+                  .then( function (){
+                    console.log("mushi mushi");
+                  })
+                  .catch( function (){
+                    console.log("no mushi");
+                  });   
+
+                });
+
+            }
+          vm.topup =false  
+          toastr.success('Budget Increased');
+          });
+
+
+        }
+        else{
+          vm.budget.error = true;
+        }
+
+      }      
+
     }
 
     
@@ -157,6 +231,9 @@
    
 
   }
+
+
+
 
   	
 })();

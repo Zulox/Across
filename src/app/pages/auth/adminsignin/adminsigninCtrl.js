@@ -25,7 +25,7 @@
 
 			  	TempData.$loaded().then(function () {		
 					AuthUser.setConnecting(TempData);
-					 $state.go('admin.dashboard');
+					 $state.go('admin.viewadvert');
 					 toastr.success('Admin Login');
 				});	
 			  }, function (error){
