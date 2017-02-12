@@ -4,8 +4,8 @@
   angular.module('BlurAdmin.pages.user.viewadvert')
       .controller('AdvertdetailCtrl', AdvertdetailCtrl);
   /** @ngInject */
-  function AdvertdetailCtrl(  $firebaseArray, AuthUser, $state, $uibModal, toastr, $scope , Upload) {    	
-  	var vm = this;
+  function AdvertdetailCtrl(  $firebaseArray, AuthUser, $state, $uibModal, toastr, $scope , Upload) {     
+    var vm = this;
 
     vm.open = open;
     vm.topup = false;
@@ -14,10 +14,10 @@
     
     vm.topupfunc = topupfunc;
 
+    vm.edit = false;
+    vm.delete = false;
 
-
-
-
+    vm.Append = Append;
 
 
     vm.cUser = AuthUser.getConnecting();
@@ -33,28 +33,7 @@
       vm.advertisement = getAds.$getRecord($state.params.id);            
     });
 
-    function open(page, type) {
-
-
-         vm.modal= $uibModal.open({
-            animation: true,
-            templateUrl: page,  
-            controller: 'AdvertdetailCtrl' ,
-            controllerAs: 'vm',
-            dismiss: {
-              items: function () {
-                console.log('gonzo');               
-              }
-            }            
-            
-          }).close(function(what){
-          console.log(vm.modal);
-
-          //Append(type);
-         
-        })
-        ;
-    }
+  
 
     function Append(type) {
 
@@ -76,17 +55,17 @@
           if(!vm.picFile){
                 var query = rootRef.child('advertisement/'+vm.advertisement.$id+'/AdsPublishing' );
                 query.once('value').then(function (snap){
-                  var adpubkey = Object.keys(snap.val());
+                
                   var updateObj = {};
                   
+                  if(snap.val()){
+                  var adpubkey = Object.keys(snap.val());
                   adpubkey.forEach(function (key){                     
                       updateObj['adpublishing/'+key+ '/advertisement/LandingURL'] =  vm.advertisement.LandingURL;
                       updateObj['adpublishing/'+key+ '/advertisement/Name'] =  vm.advertisement.Name;
-
-                      //test delete
-                      
-                      
+                       updateObj['adpublishing/'+key+ '/advertisement/Basevalue'] =  vm.advertisement.Basevalue;
                   });
+                  }
 
                   rootRef.update(updateObj)
                   .then( function (){
@@ -113,18 +92,19 @@
                 //Atomic Update
                 var query = rootRef.child('advertisement/'+vm.advertisement.$id+'/AdsPublishing' );
                 query.once('value').then(function (snap){
-                  var adpubkey = Object.keys(snap.val());
+                  
                   var updateObj = {};
                   
+                  if(snap.val()){
+                  var adpubkey = Object.keys(snap.val());
                   adpubkey.forEach(function (key){
                       updateObj['adpublishing/'+key+ '/advertisement/BannerURL'] =  url;
                       updateObj['adpublishing/'+key+ '/advertisement/LandingURL'] =  vm.advertisement.LandingURL;
                       updateObj['adpublishing/'+key+ '/advertisement/Name'] =  vm.advertisement.Name;
-
-                      //test delete
-                      
-                      
+                      updateObj['adpublishing/'+key+ '/advertisement/Basevalue'] =  vm.advertisement.Basevalue;
                   });
+                  }
+               
 
                   rootRef.update(updateObj)
                   .then( function (){
@@ -145,8 +125,7 @@
           }
           
           //rootRef.update('users'+currentUser.$id+ '/advertisement/'+ vm.advertisement.$id);
-          getAds.$save(vm.advertisement).then(function(){
-          console.log(vm.advertisement);                
+          getAds.$save(vm.advertisement).then(function(){                          
           toastr.success('Advertisement Updated');
           });
       }
@@ -154,12 +133,15 @@
 
           var query = rootRef.child('advertisement/'+vm.advertisement.$id+'/AdsPublishing' );
           query.once('value').then(function (snap){
-            var adpubkey = Object.keys(snap.val());
+           
             var updateObj = {};
             
+            if(snap.val()){
+            var adpubkey = Object.keys(snap.val());
             adpubkey.forEach(function (key){                                           
                 updateObj['adpublishing/'+key+ '/advertisement/Status'] = "Inactive";
-            });  
+            }); 
+            } 
             console.log(updateObj);
 
             getAds.$remove(vm.advertisement).then(function(){
@@ -186,6 +168,7 @@
         if( vm.cUser.funds >= vm.topupAmmount){
           vm.budget.error = false;
           vm.advertisement.Budget +=  vm.topupAmmount;
+          rootRef.child("/users/"+ currentUser.$id +"/funds").set(currentUser.funds - vm.topupAmmount); 
           getAds.$save(vm.advertisement).then(function(){
             
             if( (vm.advertisement.Status === "Inactive") && (vm.advertisement.Budget > 0)){
@@ -209,7 +192,6 @@
                   });   
 
                 });
-
             }
           vm.topup =false  
           toastr.success('Budget Increased');
@@ -235,7 +217,5 @@
 
 
 
-  	
+    
 })();
-
-

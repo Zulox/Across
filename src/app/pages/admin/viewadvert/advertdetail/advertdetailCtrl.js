@@ -7,6 +7,9 @@
   function AadvertdetailCtrl(  $firebaseArray, $state, $uibModal, toastr, $scope) {    	
   	var vm = this;
 
+    vm.approve = false;
+    vm.rejection = false;
+
     vm.open = open;
     vm.Append = Append;
     vm.allpublish = allpublish;
@@ -21,26 +24,7 @@
       vm.advertisement = getAds.$getRecord($state.params.id);            
     });
 
-    function open(page, type) {
-
-
-          $uibModal.open({
-            animation: true,
-            templateUrl: page,  
-            controller: 'AadvertdetailCtrl' ,
-            controllerAs: 'vm',         
-            resolve: {
-              items: function () {                
-                return $scope.items;
-              }
-            }
-          }).closed.then(function(){
-         
-          Append(type);
-         
-        });
-    }
-
+   
     function Append(type) {
 
      var rootref = new firebase.database().ref();

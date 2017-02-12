@@ -80,17 +80,46 @@
  	</div>
 
  	<div class="col-md-6 col-xs-12 text-center"  ba-panel >
- 	<button type="submit" 
-		 	ng-click="vm.open('app/pages/user/viewadvert/advertdetail/widgets/confirmModal.html', 1)"
+ 	<button type="submit"  ng-hide="vm.edit"
+		 	ng-click="vm.edit = true"
 			class="btn  col-xs-10 col-xs-offset-1 btn-info" >
 	EDIT
-	</button>  
+	</button>
+	<div ng-show="vm.edit" class="text-center">
+			<h1>Append Edit</h1>
+			<button type="submit" 
+				 	ng-click="vm.Append(1)"
+					class="btn  col-xs-4  col-xs-offset-1 btn-success" >
+				Confirm
+			</button>
+			<button type="submit" 
+				 	ng-click="vm.edit = false"
+					class="btn  col-xs-4  col-xs-offset-2 btn-danger" >
+				Cancel
+			</button>  
+	</div>
+
+
+
  	<span class= "btn  col-xs-12" ></span>
-    <button type="submit" 
-		 	ng-click="vm.open('app/pages/user/viewadvert/advertdetail/widgets/confirmModal.html', 0)"
+    <button type="submit"  ng-hide="vm.delete"
+		 	ng-click="vm.delete = true"
 			class="btn  col-xs-10 col-xs-offset-1 btn-danger" >
 	DELETE
-	</button> 
+	</button>
+	<div ng-show="vm.delete" class="text-center">
+			<h1>Confirm Delete</h1>
+			<button type="submit" 
+				 	ng-click="vm.Append(0)"
+					class="btn  col-xs-4  col-xs-offset-1 btn-success" >
+				Confirm
+			</button>
+			<button type="submit" 
+				 	ng-click="vm.delete = false"
+					class="btn  col-xs-4  col-xs-offset-2 btn-danger" >
+				Cancel
+			</button>  
+	</div> 
 	</div>
 </div>
 </div>

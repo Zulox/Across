@@ -42,9 +42,42 @@
   
    <!-- <button type="submit" ng-click="vm.allpublish()" class="btn  btn-lg btn-info">TRY</button>    -->
   <div class="text-center" ng-if="vm.advertisement.Status  === 'Pending'">
-    <button type="submit" ng-click="vm.open('app/pages/admin/viewadvert/advertdetail/widgets/confirmModal.html', 1)" class="btn  btn-lg btn-success">APPROVE</button>  
+    <button type="submit"  ng-hide="vm.approve" ng-click="vm.approve = true" class="btn  btn-lg btn-success">APPROVE</button> 
+    <div ng-show="vm.approve" class="text-center">
+           <h1>Approve Advertisement</h1>
+      <button type="submit" 
+          ng-click="vm.Append(1)"
+          class="btn  col-xs-4  col-xs-offset-1 btn-success" >
+        Confirm
+      </button>
+      <button type="submit" 
+          ng-click="vm.approve = false"
+          class="btn  col-xs-4  col-xs-offset-2 btn-danger" >
+        Cancel
+      </button>  
+    </div> 
 
-    <button type="submit" ng-click="vm.open('app/pages/admin/viewadvert/advertdetail/widgets/confirmModal.html', 0)" class="btn  btn-lg btn-danger">REJECT</button>  
-  </div> 
+  <br>
+  <br>
+  <br>
+  <br>
+   <button type="submit"  ng-hide="vm.rejection" ng-click="vm.rejection = true" class="btn  btn-lg btn-danger">REJECT</button> 
+    <div ng-show="vm.rejection" class="text-center">
+           <h1>Reject Advertisement</h1>
+      <button type="submit" 
+          ng-click="vm.Append(0)"
+          class="btn  col-xs-4  col-xs-offset-1 btn-success" >
+        Confirm
+      </button>
+      <button type="submit" 
+          ng-click="vm.rejection = false"
+          class="btn  col-xs-4  col-xs-offset-2 btn-danger" >
+        Cancel
+      </button>  
+    </div> 
+
+  <br>
+  </div>
+
 
 </form>

@@ -12,7 +12,7 @@
 						
 			vm.advertisement;
 			vm.open = open;
-			vm.Addads =  vm.Addads;
+			vm.Addads =  Addads;
 			vm.imagesTest = imagesTest;
 			
 			vm.validation = {
@@ -64,19 +64,20 @@
     					Name: vm.advertisement.name,
 				     	Basevalue: vm.advertisement.basevalue,
 				    	LandingURL: vm.advertisement.landingURL,
-				    	BannerURL : " ",
+				    	BannerURL : "",
 				    	Budget : vm.advertisement.budget,				    	
 				    	Status : "Pending",
 				    	Totalview : 0,
 				    	Totalclick : 0,
 				    	CreatedAt : FromDate,
 				    	LastEdit  : FromDate,
-				    	AdsPublishing : " ",
+				    	AdsPublishing : "",
     				})
     				.then(function(pogback) {
     			  console.log(pogback);
 				  var id = pogback.key;
 				  rootpath.child("/users/"+ vm.userID+"/advertisement/" + id).set(true);
+				  rootpath.child("/users/"+ vm.userID+"/funds").set(vm.currentUser.funds - vm.advertisement.budget);
 				  rootpath.child("/advertisement/"+id+"/Owner/" + vm.userID).set(true);
 				  rootpath.child("/advertisement/"+id+"/Owner/fullname").set(vm.currentUser.fullname);				
 				  imagesTest(id, rootpath);			  
@@ -86,27 +87,7 @@
 		    }
 
 
-			function open(page) {
-
-				//add validation in here
-
-		      $uibModal.open({
-		        animation: true,
-		        templateUrl: page,	
-		        controller: 'addadvertCtrl' ,
-		        controllerAs: 'vm',		            
-		        resolve: {
-		          items: function () {
-		          	console.log('uibmodal');
-		            return $scope.items;
-		          }
-		        }
-		      }).closed.then(function(){
-		 		 console.log("hi");
-		 		 Addads();
-				});
-		    }
-
+			
 		    function imagesTest(targetname, rootpath){
 
 		    	var storageRef = firebase.storage().ref();

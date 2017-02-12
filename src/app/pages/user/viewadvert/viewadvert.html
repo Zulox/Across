@@ -1,6 +1,6 @@
 <div ui-view="">
 	<div class="widgets">	
-  		<div class="row" ng-repeat=" advert in vm.advertisements" >  	
+  		<div class="row" ng-repeat=" advert in vm.advertisements | orderBy : '-$id'" >  	
 			<div  class="col-md-12 col-xs-12 whitetext"
 				  ba-panel 
 				  ba-panel-title="{{ advert.Name  }}"
