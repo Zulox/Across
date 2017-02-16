@@ -2,7 +2,7 @@
 #WARNING!
 Head over to
 
-Zulox.github.io/Across
+(http://Zulox.github.io/Across)
 
 for more info
 
