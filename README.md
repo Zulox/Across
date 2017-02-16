@@ -1,8 +1,10 @@
 
 #WARNING!
-This Project is not complete and actively being developed, come back and check it 6th FEB 2017 for the potentially finished product
+Head over to
 
+Zulox.github.io/Across
 
+for more info
 
 Some picture on how it would look like
 
